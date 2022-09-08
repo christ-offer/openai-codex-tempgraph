@@ -53,7 +53,7 @@ function getTemperature(lat, lon) {
                     labels,
                     datasets: [
                     {
-                        label: 'Temperature',
+                        label: 'Temperature Max',
                         data: temperatures,
                         backgroundColor: 'rgba(255, 99, 132, 0.2)',
                         borderColor: 'rgba(255, 99, 132, 1)',
@@ -67,14 +67,14 @@ function getTemperature(lat, lon) {
                         borderWidth: 1
                     },
                     {
-                        label: 'Precipitation',
+                        label: 'Precipitation 24H',
                         data: precipitations,
                         backgroundColor: 'rgba(122, 99, 132, 0.2)',
                         borderColor: 'rgba(122, 99, 132, 1)',
                         borderWidth: 1
                     },
                     {
-                        label: 'Wind Speed',
+                        label: 'Wind Speed Max',
                         data: windspeeds,
                         backgroundColor: 'rgba(35, 99, 132, 0.2)',
                         borderColor: 'rgba(35, 99, 132, 1)',
@@ -89,6 +89,30 @@ function getTemperature(lat, lon) {
                                 beginAtZero: true
                             }
                         }]
+                    },
+                    plugins: {
+                        zoom: {
+                        // Container for pan options
+                            pan: {
+                            // Boolean to enable panning
+                                enabled: true,
+
+                                // Panning directions. Remove the appropriate direction to disable 
+                                // Eg. 'y' would only allow panning in the y direction
+                                mode: 'x'
+                            },
+
+                            // Container for zoom options
+                            zoom: {
+                                // Boolean to enable zooming
+                                enabled: true,
+
+                                // Zooming directions. Remove the appropriate direction to disable 
+                                // Eg. 'y' would only allow zooming in the y direction
+                                mode: 'x',
+                                speed: 1,
+                            }
+                        }
                     }
                 }
             });
